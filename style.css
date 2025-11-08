@@ -1,0 +1,205 @@
+/* ================== Base Styles ================== */
+body {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 20px;
+    color: #F5F5F0; /* cream text */
+    letter-spacing: 0.8px;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background: linear-gradient(
+        135deg,
+        #051F20 0%,    /* dark green */
+        #163832 40%,   /* medium jungle green */
+        #235347 70%,   /* brunswick green */
+        #8EB69B 100%   /* dark sea green */
+    );
+}
+
+/* ================== App Container ================== */
+.app-container {
+    width: 400px;
+    max-width: 90%;
+    margin: 60px auto;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(142, 182, 155, 0.3);
+}
+
+/* ================== Heading ================== */
+h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #F5F5F0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* ================== App Message ================== */
+.app-message {
+    font-size: 1.2em;
+    color: #8EB69B; /* accent green */
+    margin-bottom: 30px;
+    font-weight: 500;
+    min-height: 24px;
+}
+
+/* ================== Circle Container ================== */
+.circle-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 30px auto;
+}
+
+
+/* ================== Circle Background ================== */
+
+.progress-ring__bg {
+  stroke: #163832;        /* dark green track */
+  stroke-width: 12;
+  stroke-linecap: round;   /* makes ends rounded */
+  fill: transparent;       /* no fill inside the circle */
+}
+
+/* progress ring (animated) */
+.progress-ring__circle {
+  stroke: #8EB69B;        /* accent green for progress */
+  stroke-width: 12;
+  stroke-linecap: round;  
+  transform: rotate(-90deg);      /* start from top (12 o'clock) */
+  transform-origin: 50% 50%;     
+  transition: stroke-dashoffset 1s linear; /* smooth animation */
+}
+
+
+/* ================== Time Display ================== */
+.time {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    font-weight: 700;
+    color: #F5F5F0;
+    font-family: 'Fira Sans', monospace;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+/* ================== Start Button ================== */
+#start {
+    position: absolute;
+    margin-top: 20px;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #8EB69B 0%, #A7C6AA 100%);
+    color: #1A1A1A;
+    cursor: pointer;
+    border: 2px solid #F5F5F0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#start:hover {
+    background: linear-gradient(135deg, #A7C6AA 0%, #8EB69B 100%);
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 4px 15px rgba(142, 182, 155, 0.4);
+}
+
+#start:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+/* ================== Pause & Reset Buttons ================== */
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#pause, #reset {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    flex: 1;
+    max-width: 120px;
+}
+
+#pause {
+    background: linear-gradient(135deg, #A0522D 0%, #8B7355 100%);
+    color: #F5F5F0;
+    border-color: #A0522D;
+}
+
+#pause:hover {
+    background: linear-gradient(135deg, #8B7355 0%, #A0522D 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(160, 82, 45, 0.4);
+}
+
+#reset {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+    color: #F5F5F0;
+    border-color: #2D2D2D;
+}
+
+#reset:hover {
+    background: linear-gradient(135deg, #2D2D2D 0%, #1A1A1A 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+#pause:active, #reset:active {
+    transform: translateY(0);
+}
+
+/* ================== Responsive ================== */
+@media (max-width: 500px) {
+    .app-container {
+        width: 90%;
+        padding: 25px 15px;
+        margin: 30px auto;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .circle-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .time {
+        font-size: 2.5em;
+    }
+    
+    #start {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+        margin-top: 15px;   }
+    
+    #pause, #reset {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        max-width: 110px;
+    }
+}
